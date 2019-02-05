@@ -2,14 +2,10 @@
 
 A [Node](http://nodejs.org/) module that parses the popular, (at least in Greece) classifieds website, insomnia.gr
 
-Please not that this is a personal side-project. I may use non-conventional ways of coding for learning purposes, as it stands, the software is fully functional.
-If you wish you can always drop a line in [issues](https://github.com/iokaravas/insomniac/issues).
+Please note that this is a personal side-project. I may use weird/uncommon ways of doing stuff for learning purposes.
+As it stands though, the software is fully functional, and I'm usually pushing only working prototypes.
 
-You can install this module using [npm](http://github.com/isaacs/npm):
-
-```
-npm install https://github.com/iokaravas/insomniac.git --save
-```
+If you wish you can always drop me a line with suggestions/issues in [issues](https://github.com/iokaravas/insomniac/issues).
 
 ### Dependencies
 
@@ -24,8 +20,14 @@ insomniac has the following dependencies:
 
 This readme is a brief introduction, there is no currently no full documentation.
 
-###Load in the module
-const insomniac = require('insomniac')
+You can install this module using [npm](http://github.com/isaacs/npm):
+
+
+    npm install https://github.com/iokaravas/insomniac.git --save
+
+
+### Load in the module
+    const insomniac = require('insomniac')
 
 ### Example uses
 
