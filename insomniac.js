@@ -29,7 +29,7 @@ let insomniac = {
                     listings.push({
                         title: $(this).find('.title h3').text().trim(),
                         price: $(this).find('.classified__photo .price span[itemprop="price"]').attr("content"),
-                        thumb: $(this).find('.classified__photo a img').attr('src'),
+                        thumb: $(this).find('.classified__photo a img').attr('data-src'),
                         url: $(this).find('.title h3 a').attr('href'),
                         date: ''
                     })
@@ -89,7 +89,7 @@ let insomniac = {
                         title: $(this).find('.ipsDataItem_title a').text().trim(),
                         price: $(this).find('.cFilePrice').text().trim().replace(/\D/g, ""),
                         thumb: $(this).find('img').attr('src'),
-                        date: $(this).find('time').text().trim(),
+                        date: $(this).find('time').attr('datetime'),
                         url: $(this).find('.ipsDataItem_main').find('a').attr('href')
                     })
 
