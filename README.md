@@ -2,10 +2,10 @@
 
 A [Node](http://nodejs.org/) module that parses the popular, (at least in Greece) classifieds website, insomnia.gr
 
-Please note that this is a personal side-project. I may use weird/uncommon ways of doing stuff for learning purposes.
-As it stands though, the software is fully functional, and I'm usually pushing only working prototypes.
+Please note that this is a personal side project I work on during my free time. I may use weird/uncommon ways of doing stuff just for learning purposes.
+As it stands though, the software is fully functional and I'm pushing only working prototypes.
 
-If you wish you can always drop me a line with suggestions/issues in [issues](https://github.com/iokaravas/insomniac/issues).
+If you wish you can always drop me a line with suggestions/issues in [issues](https://github.com/iokaravas/insomniac/issues) at [@karavas](https://twitter.com/karavas).
 
 ### Dependencies
 
@@ -17,8 +17,6 @@ insomniac has the following dependencies:
 - [querystring](https://www.npmjs.com/package/querystring) 
 
 ### Quick Start
-
-This readme is a brief introduction, there is no currently no full documentation.
 
 You can install this module using [npm](http://github.com/isaacs/npm):
 
