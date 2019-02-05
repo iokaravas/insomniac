@@ -1,0 +1,32 @@
+{
+  "name": "insomniac",
+  "version": "1.0.0",
+  "description": "A parser for popular classifieds website insomnia.gr",
+  "main": "insomniac.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "cheerio": "^1.0.0-rc.2",
+    "request": "^2.88.0",
+    "request-promise-native": "^1.0.5"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/iokaravas/insomniac.git"
+  },
+  "keywords": [
+    "insomnia.gr",
+    "parser",
+    "greek",
+    "classifieds",
+    "classifieds",
+    "cheerio"
+  ],
+  "author": "Ioannis (John)",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/iokaravas/insomniac/issues"
+  },
+  "homepage": "https://github.com/iokaravas/insomniac#readme"
+}
