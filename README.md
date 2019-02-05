@@ -35,7 +35,7 @@ You can install this module using [npm](http://github.com/isaacs/npm):
         listings.map(listing => console.log(listing))
     })
     
-##### Printing on screen all the available categories (in url format)
+##### Printing on screen all the available categories (in url format -you'll probably need this for requesting a category)
 
     insomniac.listCategories().then(function (categories) {
         categories.forEach(function (category) {
