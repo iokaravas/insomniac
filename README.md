@@ -74,6 +74,7 @@ Much of the parsing is quite fragile. Since sites change all the time, it is not
 ### TODO
 Several things could be added and/or improved, including :
 
+* Allow for more precise filtering, **as currently only title is taken into consideration**
 * Discard parameters for options object instead
 * Handle specific errors, although you still can catch the final error from Promise.all()
 * Parse even more information
