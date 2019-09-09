@@ -79,18 +79,18 @@ let insomniac = {
                 let $ = cheerio.load(html)
                 let listings = []
 
-                $('.ipsDataItem').filter(function () {
+                $('li.ipsDataItem').filter(function () {
 
-                    // Get only SALES
+                    // Get only SALES - Skips BUYS
                     if ($(this).find('.ipsBadge').hasClass('ipsBadge_style2')) {
                         return
                     }
 
                     listings.push({
                         title: $(this).find('.ipsDataItem_title a').text().trim(),
-                        price: $(this).find('.cFilePrice').text().trim().replace(/\D/g, ""),
-                        thumb: $(this).find('img').attr('src'),
-                        date: $(this).find('time').attr('datetime'),
+                        price: $(this).find('.cFilePrice .ipsType_normal').text().trim(),
+                        thumb: $(this).find('a.ipsThumb').attr('data-background-src')||'',
+                        date: $(this).find('time').attr('datetime')||'',
                         url: $(this).find('.ipsDataItem_main').find('a').attr('href')
                     })
 
@@ -105,7 +105,7 @@ let insomniac = {
 
             listings = [].concat.apply([], listings)
 
-            if (filters.title.length !== 0) {
+            if (Object.keys(filters).length !== 0) {
                 let titlesRegex = new RegExp(filters.title.join('|'), 'i')
 
                 return (listings.filter((listing) => {
