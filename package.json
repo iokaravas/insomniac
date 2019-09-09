@@ -1,6 +1,6 @@
 {
   "name": "insomniac",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "A parser for popular classifieds website insomnia.gr",
   "main": "insomniac.js",
   "scripts": {
