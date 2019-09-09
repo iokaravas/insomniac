@@ -26,10 +26,11 @@ let insomniac = {
                 let listings = []
 
                 $('.classifieds__latest .entry').each(function () {
+                    let thumbElement = $(this).find('.classified__photo a img')
                     listings.push({
                         title: $(this).find('.title h3').text().trim(),
-                        price: $(this).find('.classified__photo .price span[itemprop="price"]').attr("content"),
-                        thumb: $(this).find('.classified__photo a img').attr('data-src'),
+                        price: $(this).find('.classified__photo .price span').text().trim(),
+                        thumb: thumbElement.attr('data-flickity-lazyload') || thumbElement.attr('data-src'),
                         url: $(this).find('.title h3 a').attr('href'),
                         date: ''
                     })
@@ -45,7 +46,7 @@ let insomniac = {
 
             listings = [].concat.apply([], listings)
 
-            if (filters.title.length !== 0) {
+            if ((filters)&&(filters.title.length !== 0)) {
                 let titlesRegex = new RegExp(filters.title.join('|'), 'i')
 
                 return (listings.filter((listing) => {
