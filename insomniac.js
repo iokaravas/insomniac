@@ -36,6 +36,12 @@ let insomniac = {
                 let listings = []
 
                 $(SELECTORS.LATEST_ITEM).each(function () {
+
+                    // Get only SALES - Skips BUYS
+                    if ($(this).find('.ipsBadge').hasClass('ipsBadge_style2')) {
+                        return
+                    }
+
                     let thumbElement = $(this).find(SELECTORS.THUMBNAIL)
                     listings.push({
                         title: $(this).find(SELECTORS.TITLE).text().trim(),
