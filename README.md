@@ -53,13 +53,13 @@ This will print an array of objects (classified listings) of this structure:
 
     { 
         title: 'The classified title',
-        price: '50', // the price in EUR
+        price: 50, // the price in EUR
         thumb: 'insomnia_classified_image.jpeg',
         url: 'http://link-to-classified-in-site/',
-        date: '2019-02-05T15:20:36Z'
+        dateScrapped: 2019-02-05T15:20:36Z
      }
 
-Unfortunately date information is not available when using insomniac.latest().
+Unfortunately date information for each listing is not available. We keep the date insomniac scrapped the listing.
 
 ### Authors
 
