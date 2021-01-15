@@ -6,6 +6,16 @@ const DOMAIN = 'http://www.insomnia.gr/'
 const CLASSIFIEDS_URL = DOMAIN + 'classifieds/'
 const SEARCH_URL = CLASSIFIEDS_URL + 'search/?type=classifieds_advert'
 
+// These might need updating from time to time, as the website design changes
+const SELECTORS = {
+    LATEST_ITEM: '.classifieds-index-adverts-latest article',
+    CATEGORY_ITEM: '.classifieds-browse-adverts li',
+    TITLE : 'h4',
+    PRICE : 'p.cFilePrice .cFilePrice',
+    THUMBNAIL : '.ipsThumb img',
+    URL: 'h4 a'
+}
+
 let insomniac = {
 
     /***
@@ -25,14 +35,14 @@ let insomniac = {
                 let $ = cheerio.load(html)
                 let listings = []
 
-                $('.classifieds__latest .entry').each(function () {
-                    let thumbElement = $(this).find('.classified__photo a img')
+                $(SELECTORS.LATEST_ITEM).each(function () {
+                    let thumbElement = $(this).find(SELECTORS.THUMBNAIL)
                     listings.push({
-                        title: $(this).find('.title h3').text().trim(),
-                        price: $(this).find('.classified__photo .price span').text().trim(),
+                        title: $(this).find(SELECTORS.TITLE).text().trim(),
+                        price: parseFloat($(this).find(SELECTORS.PRICE).text().replace(',','.').trim()),
                         thumb: thumbElement.attr('data-flickity-lazyload') || thumbElement.attr('data-src'),
-                        url: $(this).find('.title h3 a').attr('href'),
-                        date: ''
+                        url: $(this).find(SELECTORS.URL).attr('href'),
+                        dateScrapped: new Date()
                     })
                 })
 
@@ -79,19 +89,21 @@ let insomniac = {
                 let $ = cheerio.load(html)
                 let listings = []
 
-                $('li.ipsDataItem').filter(function () {
+                $(SELECTORS.CATEGORY_ITEM).filter(function () {
 
                     // Get only SALES - Skips BUYS
                     if ($(this).find('.ipsBadge').hasClass('ipsBadge_style2')) {
                         return
                     }
 
+                    let thumbElement = $(this).find(SELECTORS.THUMBNAIL)
+
                     listings.push({
-                        title: $(this).find('.ipsDataItem_title a').text().trim(),
-                        price: $(this).find('.cFilePrice .ipsType_normal').text().trim(),
-                        thumb: $(this).find('a.ipsThumb').attr('data-background-src')||'',
-                        date: $(this).find('time').attr('datetime')||'',
-                        url: $(this).find('.ipsDataItem_main').find('a').attr('href')
+                        title: $(this).find(SELECTORS.TITLE).text().trim(),
+                        price: parseFloat($(this).find(SELECTORS.PRICE).text().replace(',','.').trim()),
+                        thumb: thumbElement.attr('data-flickity-lazyload') || thumbElement.attr('data-src'),
+                        url: $(this).find(SELECTORS.URL).attr('href'),
+                        dateScrapped: new Date(),
                     })
 
                 })
