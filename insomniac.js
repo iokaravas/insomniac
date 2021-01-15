@@ -3,7 +3,7 @@ const cheerio = require('cheerio')
 const querystring = require("querystring")
 
 const DOMAIN = 'http://www.insomnia.gr/'
-const CLASSIFIEDS_URL = DOMAIN + 'classifieds/'
+const CLASSIFIEDS_URL = DOMAIN + 'classifieds'
 const SEARCH_URL = CLASSIFIEDS_URL + 'search/?type=classifieds_advert'
 
 // These might need updating from time to time, as the website design changes
@@ -30,7 +30,7 @@ let insomniac = {
 
         for (let page = 1; page <= pages; page++) {
 
-            downloadedPages.push(request(`${CLASSIFIEDS_URL}/page/${page}`).then(function (html) {
+            downloadedPages.push(request(`${CLASSIFIEDS_URL}/page/${page}/`).then(function (html) {
 
                 let $ = cheerio.load(html)
                 let listings = []
@@ -84,7 +84,7 @@ let insomniac = {
         category = querystring.escape(category)
 
         for (let page = 1; page <= pages; page++) {
-            downloadedPages.push(request(`${CLASSIFIEDS_URL}category/${category}/page/${page}`).then(function (html) {
+            downloadedPages.push(request(`${CLASSIFIEDS_URL}/category/${category}/page/${page}`).then(function (html) {
 
                 let $ = cheerio.load(html)
                 let listings = []
