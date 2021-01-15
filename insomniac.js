@@ -30,7 +30,7 @@ let insomniac = {
 
         for (let page = 1; page <= pages; page++) {
 
-            downloadedPages.push(request(CLASSIFIEDS_URL + '?page=' + page).then(function (html) {
+            downloadedPages.push(request(`${CLASSIFIEDS_URL}/page/${page}`).then(function (html) {
 
                 let $ = cheerio.load(html)
                 let listings = []
@@ -84,7 +84,7 @@ let insomniac = {
         category = querystring.escape(category)
 
         for (let page = 1; page <= pages; page++) {
-            downloadedPages.push(request(CLASSIFIEDS_URL + 'category/' + category).then(function (html) {
+            downloadedPages.push(request(`${CLASSIFIEDS_URL}category/${category}/page/${page}`).then(function (html) {
 
                 let $ = cheerio.load(html)
                 let listings = []
